@@ -8,3 +8,12 @@
 image {
   max-width: 30%;
 }
+
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  outline: 2px solid purple;
+
+}
