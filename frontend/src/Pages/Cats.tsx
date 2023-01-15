@@ -1,4 +1,7 @@
 import React from 'react';
+import Select from '@mui/material/Select';
+import { SelectChangeEvent } from '@mui/material/Select';
+import '../App.css';
 
 interface CatsState {
   selectedCode: number | null;
@@ -10,8 +13,11 @@ class CatsPage extends React.Component<{}, CatsState> {
   };
 
   handleCodeSelected = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    this.setState({ selectedCode: parseInt(event.target.value) });
-  };
+    const code = parseInt(event.target.value);
+    if (!isNaN(code) && this.codes.includes(code)) {
+        this.setState({ selectedCode: code });
+    }
+};
 
   codes = [
     100, 101, 102, 103, 200, 201, 202, 203, 204, 206, 207, 300, 301, 302, 303,
@@ -23,9 +29,9 @@ class CatsPage extends React.Component<{}, CatsState> {
 
   render() {
     return (
-      <div>
-        <select onChange={this.handleCodeSelected}>
-          <option value="">Select an HTTP status code</option>
+      <div className='cats'>
+        <select onChange={this.handleCodeSelected} className="selectCats">
+          <option className="selectCats" value="">Select an HTTP status code</option>
           {this.codes.map((code) => (
             <option key={code} value={code}>
               {code}
@@ -33,12 +39,15 @@ class CatsPage extends React.Component<{}, CatsState> {
           ))}
         </select>
         {this.state.selectedCode && (
-          <img
+          <img className='mediacats'
             src={`https://http.cat/${this.state.selectedCode}.jpg`}
             alt={`HTTP ${this.state.selectedCode}`}
             onError={() => this.setState({ selectedCode: 404 })}
           />
+          
         )}
+        
+      
       </div>
     );
   }

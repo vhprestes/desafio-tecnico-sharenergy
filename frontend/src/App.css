@@ -15,5 +15,40 @@ image {
   justify-content: center;
   margin: 1rem 0;
   outline: 2px solid purple;
+}
 
+.mediacats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  /* max-width: 50%; */
+  outline: 2px solid purple;
+}
+
+.cats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 70%;
+}
+
+.selectCats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 0;
+  text-align: center;
+  text-align-last: center;
+}
+
+.selectCats option {
+  text-align: center; /* centraliza o texto das opções */
+}
+
+.selectCats {
+  text-align: center !important;
+  -webkit-appearance: none; /* remove estilo padrão */
+  -moz-appearance: none; /* remove estilo padrão */
+  appearance: none;
 }
