@@ -5,6 +5,7 @@ import {
   CardContent,
   Typography
 } from '@mui/material';
+import '../App.css'
 
 interface UserProps {
   user: {

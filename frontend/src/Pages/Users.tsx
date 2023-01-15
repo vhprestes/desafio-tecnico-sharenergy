@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 import IClient from '../interfaces/IClient';
 import IState from '../interfaces/IState';
 import axios from 'axios';
@@ -235,6 +236,11 @@ class Users extends React.Component<{}, IState> {
             ))}
           </TableBody>
         </Table>
+        <footer className='footer'>
+          <a href='/cats'><Button>Cats Page</Button></a>
+          <a href='/random'><Button>Random User Page</Button></a>
+          <a href='/dogs'><Button>Dogs Page</Button></a>
+        </footer>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import Select from '@mui/material/Select';
 import { SelectChangeEvent } from '@mui/material/Select';
 import '../App.css';
+import { Button } from '@mui/material';
 
 interface CatsState {
   selectedCode: number | null;
@@ -47,7 +48,11 @@ class CatsPage extends React.Component<{}, CatsState> {
           
         )}
         
-      
+        <footer className='footer'>
+          <a href='/landing'><Button>Clients Page</Button></a>
+          <a href='/random'><Button>Random User Page</Button></a>
+          <a href='/dogs'><Button>Dogs Page</Button></a>
+        </footer>
       </div>
     );
   }

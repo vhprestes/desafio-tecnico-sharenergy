@@ -54,6 +54,11 @@ class DogsPage extends React.Component<{}, DogPageState> {
             />
             </div>
           </Box>
+          <footer className='footer'>
+          <a href='/landing'><Button>Clients Page</Button></a>
+          <a href='/random'><Button>Random User Page</Button></a>
+          <a href='/cats'><Button>Cats Page</Button></a>
+        </footer>
         </Grid>
       );
     } else {
@@ -94,6 +99,11 @@ class DogsPage extends React.Component<{}, DogPageState> {
               ) : null}
             </Box>
           </Grid>
+          <footer className='footer'>
+          <a href='/landing'><Button>Clients Page</Button></a>
+          <a href='/random'><Button>Random User Page</Button></a>
+          <a href='/cats'><Button>Cats Page</Button></a>
+        </footer>
         </div>
       );
     }

@@ -14,6 +14,7 @@ import {
 
 import User from '../Components/User';
 import IUserRandom from '../interfaces/IUserRandom';
+import '../App.css'
 
 interface User {
   name: {
@@ -209,6 +210,11 @@ class RandomUser extends React.Component<{}, AppState> {
             key={user.email}
           />
         ))}
+                  <footer className='footer'>
+          <a href='/landing'><Button>Clients Page</Button></a>
+          <a href='/random'><Button>Random User Page</Button></a>
+          <a href='/cats'><Button>Cats Page</Button></a>
+        </footer>
       </div>
     );
   }
