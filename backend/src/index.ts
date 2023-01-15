@@ -1,3 +1,12 @@
-import { App } from "./app"
+import express from 'express';
 
-new App().server.listen(3000);
+const app = express();
+const port = 3000;
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
+});
+
+export default app
+
+// app.get('/', (_req, res) => res.send('Hello World!'));
