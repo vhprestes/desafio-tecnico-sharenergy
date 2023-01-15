@@ -33,7 +33,7 @@ interface AppState {
 
 const USERS_PER_PAGE = 20;
 
-class Landing extends React.Component<{}, AppState> {
+class RandomUser extends React.Component<{}, AppState> {
   state: AppState = {
     users: [],
     loading: false,
@@ -202,4 +202,4 @@ class Landing extends React.Component<{}, AppState> {
   }
 }
 
-export default Landing;
+export default RandomUser;

@@ -28,7 +28,7 @@ class DogsPage extends React.Component<{}, DogPageState> {
       return (
         <div>
           <button onClick={this.refreshImage}>Refresh</button>
-          <video src={this.state.imageUrl} />
+          <video className='xibiu' src={this.state.imageUrl} width={'400px'} />
         </div>
       );
     } else {
@@ -36,7 +36,7 @@ class DogsPage extends React.Component<{}, DogPageState> {
         <div>
           <button onClick={this.refreshImage}>Refresh</button>
           {this.state.imageUrl ? (
-            <img src={this.state.imageUrl} alt="Random dog" />
+            <img  className='xibiu' src={this.state.imageUrl} alt="Random dog" width={'400px'}/>
           ) : null}
         </div>
       );
