@@ -12,6 +12,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+import { validateUpdateUser } from '../utils/Uservalidation';
 
 class Users extends React.Component<{}, IState> {
   state = {
@@ -33,6 +34,7 @@ class Users extends React.Component<{}, IState> {
 
   onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    try {
     const form = e.currentTarget;
     const data = new FormData(form);
     const newUser = {
@@ -42,10 +44,15 @@ class Users extends React.Component<{}, IState> {
       address: data.get('address') as string,
       cpf: data.get('cpf') as string,
     };
+    validateUpdateUser(newUser)
     axios.post('http://localhost:3000/users', newUser).then(() => {
       this.updateUsers();
       this.setState({ showForm: false, showFormEdit: false });
     });
+    } catch (error) {
+      console.log(error);
+      alert('Erro ao cadastrar usuário - Verifique os dados inseridos');
+    }
   };
 
   handleEdit = (user: IClient) => {
@@ -60,6 +67,7 @@ class Users extends React.Component<{}, IState> {
 
   handleUpdate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    try {
     const form = e.currentTarget;
     const data = new FormData(form);
     const updateUser = {
@@ -78,7 +86,12 @@ class Users extends React.Component<{}, IState> {
           showFormEdit: false,
           formData: {} as IClient,
         });
+      }).catch((error) => {
+        alert(error.response.data.message);
       });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleDelete = (user: IClient) => {

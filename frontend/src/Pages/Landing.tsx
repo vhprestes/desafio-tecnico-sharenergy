@@ -1,7 +1,19 @@
 import * as React from 'react';
 import axios from 'axios';
+import {
+  Grid,
+  TextField,
+  Select,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Button,
+  CircularProgress,
+  Typography
+} from '@mui/material';
 
 import User from '../Components/User';
+import IUserRandom from '../interfaces/IUserRandom';
 
 interface User {
   name: {
@@ -18,7 +30,7 @@ interface User {
     age: number;
   };
   picture: {
-    medium: string;
+    large: string;
   };
 }
 
@@ -134,7 +146,7 @@ class RandomUser extends React.Component<{}, AppState> {
 
   handleSearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    this.setState({ currentPage: 1 });
+    // this.setState({ currentPage: 1 });
     this.searchUsers();
   };
 
@@ -169,8 +181,8 @@ class RandomUser extends React.Component<{}, AppState> {
 
     return (
       <div>
-        <button onClick={this.handlePrevPage}>Página Anterior</button>
-        <button onClick={this.handleNextPage}>Próxima Página</button>
+        <Button onClick={this.handlePrevPage}>Página Anterior</Button>
+        <Button onClick={this.handleNextPage}>Próxima Página</Button>
         <form onSubmit={this.handleSearchSubmit}>
           <input
             type="text"
@@ -183,9 +195,9 @@ class RandomUser extends React.Component<{}, AppState> {
             <option value="login">Login</option>
             <option value="email">Email</option>
           </select>
-          <button type="submit" disabled={this.isSearchbuttonDisabled()}>
+          <Button type="submit" disabled={this.isSearchbuttonDisabled()}>
             Pesquisar
-          </button>
+          </Button>
         </form>
         {users.map((user) => (
           <User
