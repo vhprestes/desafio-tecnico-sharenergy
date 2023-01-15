@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
         localStorage.removeItem('username');
         localStorage.removeItem('password');
       }
-      navigate('/random');
+      navigate('/landing');
     } else {
       // Autenticação falhou
       alert('Nome de usuário ou senha incorretos');
