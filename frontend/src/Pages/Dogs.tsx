@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from '@mui/material';
+import { fetchDogs } from '../API/fetchExternalAPI';
 
 interface DogPageState {
   imageUrl: string;
@@ -14,11 +16,9 @@ class DogsPage extends React.Component<{}, DogPageState> {
   }
 
   refreshImage = () => {
-    fetch('https://random.dog/woof.json')
-      .then((response) => response.json())
-      .then((data) => {
-        // atualizando o estado do componente com a imagem nova
-        this.setState({ imageUrl: data.url });
+    fetchDogs()
+      .then((imageUrl) => {
+        this.setState({ imageUrl });
       });
   };
 
@@ -27,14 +27,14 @@ class DogsPage extends React.Component<{}, DogPageState> {
     if (this.state.imageUrl.match(/\.mp4$/) != null) {
       return (
         <div>
-          <button onClick={this.refreshImage}>Refresh</button>
+          <Button onClick={this.refreshImage}>Refresh</Button>
           <video className='xibiu' src={this.state.imageUrl} width={'400px'} />
         </div>
       );
     } else {
       return (
         <div>
-          <button onClick={this.refreshImage}>Refresh</button>
+          <Button startIcon color='primary' variant='contained' onClick={this.refreshImage}>Refresh</Button>
           {this.state.imageUrl ? (
             <img  className='xibiu' src={this.state.imageUrl} alt="Random dog" width={'400px'}/>
           ) : null}
