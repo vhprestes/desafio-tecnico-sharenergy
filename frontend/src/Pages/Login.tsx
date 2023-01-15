@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import  { ThemeProvider, createTheme, TextField, Button, Checkbox, FormControlLabel, Grid, Avatar, Box, Typography } from '@mui/material'; 
+import { blue, pink } from "@mui/material/colors";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Paper from '@mui/material/Paper';
+import background from '../images/background.jpg'
+
+
+
 
 interface LoginState {
   username: string;
   password: string;
   rememberMe: boolean;
 }
+
+// const theme = createTheme();
 
 const LoginPage: React.FC = () => {
   const [loginState, setLoginState] = useState<LoginState>({
@@ -14,7 +24,6 @@ const LoginPage: React.FC = () => {
     rememberMe: false,
   });
   const navigate = useNavigate();
-
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLoginState({ ...loginState, username: event.target.value });
@@ -53,7 +62,14 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  const mount = () => {
+  const appTheme = createTheme({
+    palette: {
+      primary: blue,
+      secondary: pink,
+    },
+  });
+
+  const autoLogin = () => {
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     if (username && password) {
@@ -66,41 +82,92 @@ const LoginPage: React.FC = () => {
   };
 
   React.useEffect(() => {
-    mount();
+    autoLogin();
   }, []);
 
   return (
+    <ThemeProvider theme={appTheme} >
+            <Grid container component="main" sx={{ height: '100vh' }}>
+            <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: `url(${background})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 20,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+
+
     <form onSubmit={handleSubmit}>
-      <label>
-        Nome de usuário:
-        <input
-          type="text"
-          value={loginState.username}
-          onChange={handleUsernameChange}
-        />
-      </label>
+      <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+        value={loginState.username}
+        onChange={handleUsernameChange}
+      />
       <br />
-      <label>
-        Senha:
-        <input
-          type="password"
-          value={loginState.password}
-          onChange={handlePasswordChange}
-        />
-      </label>
+      <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+        value={loginState.password}
+        onChange={handlePasswordChange}
+      />
       <br />
-      <label>
-        Lembre-me:
-        <input
-          type="checkbox"
-          checked={loginState.rememberMe}
-          onChange={handleRememberMeChange}
-        />
-      </label>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={loginState.rememberMe}
+            onChange={handleRememberMeChange}
+            color="primary"
+          />
+        }
+        label="Lembre-me"
+      />
       <br />
-      <input type="submit" value="Entrar" />
+      <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mt: 3, mb: 2}}>
+        Entrar
+      </Button>
     </form>
+    </Box>
+    </Grid>
+    </Grid>
+    </ThemeProvider>
   );
 };
+
 
 export default LoginPage;
