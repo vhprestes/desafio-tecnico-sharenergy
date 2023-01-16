@@ -41,9 +41,25 @@ Para desenvolvimento do projeto, foram usados as seguintes tecnologias, bibliote
 - Validator
 - CORS
 
+Segue o vídeo solicitado, onde explico o desenvolvimento e lógica utilizada: https://youtu.be/a9_SwifciW8
+
 ## Funcionamento
 
+
 As páginas pedidas ficaram da seguinte forma:
+
+
+Login Page:
+![Login page](https://iili.io/HaRBn3B.png)
+
+Página dos clientes cadastrados
+![Clients page](https://iili.io/HaR7roN.png)
+
+Random Dog page
+![Dogs page](https://iili.io/HaR1yWx.png)
+
+HTTP Cat page
+![Cats page](https://iili.io/HaRlcWQ.png)
 
 
 ## Feedback
