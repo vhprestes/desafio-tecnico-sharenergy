@@ -1,19 +1,10 @@
 import * as React from 'react';
 import axios from 'axios';
 import {
-  Grid,
-  TextField,
-  Select,
-  FormControl,
-  InputLabel,
-  MenuItem,
   Button,
-  CircularProgress,
-  Typography
 } from '@mui/material';
 
 import User from '../Components/User';
-import IUserRandom from '../interfaces/IUserRandom';
 import '../App.css'
 
 interface User {
@@ -44,7 +35,7 @@ interface AppState {
   searchCategory: string;
 }
 
-const USERS_PER_PAGE = 20;
+const USERS_PER_PAGE = 100;
 
 class RandomUser extends React.Component<{}, AppState> {
   state: AppState = {
@@ -76,22 +67,6 @@ class RandomUser extends React.Component<{}, AppState> {
       this.setState({ loading: false });
     }
   }
-
-  // a API não funciona conforme o manual, então não consegui implementar a busca direamente na API. Portanto, fiz a busca no front-end.
-  // async searchUsers() {
-  //   this.setState({ loading: true });
-  //   try {
-  //     const response = await axios.get(
-  //       `https://randomuser.me/api/?results=${USERS_PER_PAGE}&page=${this.state.currentPage}&seed=${'shareenergy'}&${this.state.searchCategory}=${this.state.searchTerm}`
-  //     );
-  //     this.setState({ users: response.data.results });
-  //   } catch (error) {
-  //     console.log(error);
-  //     this.setState({ error: true });
-  //   } finally {
-  //     this.setState({ loading: false });
-  //   }
-  // }
 
   filterUsers = (users: User[], searchCategory: string, searchTerm: string) => {
     return users.filter((user) => {
