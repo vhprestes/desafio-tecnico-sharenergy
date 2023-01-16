@@ -187,7 +187,7 @@ class RandomUser extends React.Component<{}, AppState> {
         ))}
                   <footer className='footer'>
           <a href='/landing'><Button>Clients Page</Button></a>
-          <a href='/random'><Button>Random User Page</Button></a>
+          <a href='/dogs'><Button>Dogs</Button></a>
           <a href='/cats'><Button>Cats Page</Button></a>
         </footer>
       </div>
