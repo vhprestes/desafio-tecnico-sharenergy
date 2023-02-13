@@ -41,8 +41,6 @@ Para desenvolvimento do projeto, foram usados as seguintes tecnologias, bibliote
 - Validator
 - CORS
 
-Segue o vídeo solicitado, onde explico o desenvolvimento e lógica utilizada: https://youtu.be/a9_SwifciW8
-
 ## Funcionamento
 
 
@@ -69,4 +67,4 @@ Agradeço qualquer feedback em relação ao meu trabalho, independente de contra
 
 ## Agradecimento
 
-Obrigado a Sharenergy por me considerar para a vaga. Foi um projeto divertido e espero que possamos seguir com o processo.
+Obrigado a Sharenergy por me considerar para a vaga. Foi um projeto divertido.
