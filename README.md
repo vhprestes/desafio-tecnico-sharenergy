@@ -13,7 +13,7 @@ npm install
 Para rodar o projeto, é necessário utilizar o [Docker](https://www.docker.com/). Certifique-se de que o mesmo está instalado em sua máquina.
 Será necessário um container MongoDB
 ```bash 
-docker run --name mongo -p 27017:27017 -d mongo
+docker run --name shareenergytest -p 27017:27017 -d mongo
 ```
 Verifique se o container está em execução usando o comando docker ps. Isso mostrará todos os containers em execução.
 Caso ele esteja em execução, basta entrar na raiz do backend e usar o comando:
